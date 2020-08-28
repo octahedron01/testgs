@@ -5,11 +5,10 @@
 	$result = mysqli_query($mysqli, $command);
 
 	if($result === true){
-		echo "<p>It worked! Code is: ".$command."</p>";
+		echo "<p>it worked!</p>";
 	}
 	else{
-		echo "<p>Something went wrong!</p>".mysqli_error();
+		echo "<p>Something went wrong!</p>";
 	}
-	echo "<p><a href=\"sql.php\">Return to homepage</a></p>";
+	echo "<p><a href=\"sql.php\">Click here to return to homepage</a></p>";
  ?>
-
