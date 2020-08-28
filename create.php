@@ -7,8 +7,8 @@
 	</head>
 	<body>
 		<form action="_create.php" method="post">
-			<p><input type="text" name="title" placeholder="title here"></p>
-			<p><textarea name="description" placeholder="text here"></p>
+			<p><input type="text" name="title" placeholder="title here"> </p>
+			<p><textarea name="description"></textarea> </p>
 			<p><input type="submit"></p>
 		</form>
 	</body>

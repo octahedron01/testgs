@@ -23,7 +23,7 @@
 		<p>
 			<?php
 				if(isset($_GET['id'])){
-					echo $_GET['id'];
+					echo file_get_contents("data/".$_GET['id']);
 				}
 				else{
 					echo "But, it is not good to save some data types in a file. <br><a href=\"sql.php\">So, I'm still trying to use SQL.</a>";

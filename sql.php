@@ -6,31 +6,31 @@
 		<h1><a href="sql.php">Welcome to SQL CRUD test website!</a></h1>
 	</head>
 	<body>
-		<?php if(!isset($_GET['id'])){?>
-			<p>
-				CRUD means Create, Read, Update, and Delete of data. <br>You can only write and see the data now. <br> Still I'm working on it. Have fun!
-			</p>
-			<a href="create.php">Wanna write?</a>
-			<br> <br> <br>
-			<?php
-				$mysqli = mysqli_connect("localhost", "crud", "qwerty", "test");
-				$command = "SELECT * FROM data;"
+
+		<p>
+			CRUD means Create, Read, Update, and Delete of data. <br>You can only write and see the data now. <br> Still I'm working on it. Have fun!
+		</p>
+		<a href="create.php">Wanna write?</a>
+		<br> <br> <br>
+		<?php
+			$mysqli = mysqli_connect("localhost", "crud", "qwerty", "test");
+			if(!isset($_GET['id'])){
+				$command = "SELECT * FROM data";
 				$result = mysqli_query($mysqli, $command);
 				$row = mysqli_fetch_array($result);
 				while(isset($row)){
-					echo "<h5><a href=\"sql.php?id=".$row['id']."\">".$row['title']."</a></h5>";
+					echo "<h3><a href=\"sql.php?id=".$row['id']."\">".$row['title']."</a></h3>";
 					$row = mysqli_fetch_array($result);
 				}
-			 ?>
-		<?php} else{ ?>
-			<?php
-				$mysqli = mysqli_connect("localhost", "crud", "qwerty", "test");
-				$command = "SELECT * FROM data WHERE id=".$_GET['id'].";"
+			}
+			else{
+				$command = "SELECT * FROM data WHERE id=".$_GET['id'].";";
 				$result = mysqli_query($mysqli, $command);
 				$row = mysqli_fetch_array($result);
 				echo "<h1>".$row['title']."</h1>";
 				echo "<p>".$row['description']."</p>";
-			 ?>
-		<?php } ?>
+			}
+		 ?>
+
 	</body>
 </html>
